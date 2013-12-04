@@ -1,15 +1,31 @@
-require './codealong'
+require './game'
 require "rspec"
 
 describe 'game of life' do
-  it 'rule #1 Any live cell with fewer than two live neighbours dies, as if caused by under-population.'
-    cell = Cell.new
-    cell.neighbours_count.should == 0 # expecting starting state of cell to have 0 neighbors
+  subject { Cell.new(0, 1) }
+  it 'rule #1 Any live cell with fewer than two live neighbours dies, as if caused by under-population.' do
+    subject.neighbors.count.should == 0 # expecting starting state of cell to have 0 neighbors
+  end
 end
 
-# Any live cell with two or three live neighbours lives on to the next generation.
-# Any live cell with more than three live neighbours dies, as if by overcrowding.
-# Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
+describe 'game of life' do
+  it 'rule #2 Any live cell with two or three live neighbours lives on to the next generation.' do
+    # cell.neighbors.count.should == 0 # expecting starting state of cell to have 0 neighbors
+  end
+end
+
+describe 'game of life' do
+  it 'rule #3 Any live cell with more than three live neighbours dies, as if by overcrowding.' do
+    # cell.neighbors.count.should == 0 # expecting starting state of cell to have 0 neighbors
+  end
+end
+
+describe 'game of life' do
+  it 'rule #4 Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.' do
+    # cell.neighbors.count.should == 0 # expecting starting state of cell to have 0 neighbors
+  end
+end
+
 
 # needs
 # board/world class
