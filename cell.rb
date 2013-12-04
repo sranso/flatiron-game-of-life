@@ -1,7 +1,8 @@
-# require "debugger"
+require "debugger"
+
 class Cell
   attr_reader :neighbors
-  attr_accessor :x, :y
+  attr_accessor :x, :y, :state
 
   ALL_CELLS = []
 
@@ -9,15 +10,8 @@ class Cell
     @y = y
     @x = x
     @neighbors = []
+    @state = "live"
     ALL_CELLS << self
-  end
-
-  def self.create_all_cells
-    10.times do |i|
-      10.times do |ii|
-        Cell.new(i, ii)
-      end
-    end
   end
 
   def neighbor_check
@@ -40,20 +34,25 @@ class Cell
       neighbors << cell if (self.y == cell.y) && (self.x - 1 == cell.x)
     end
     neighbors
+    dead_or_alive
   end
 
-  # def awake_cell(x, y)
-  #   Cell.new(x, y)
-  # end
-
-  # def kill_cell
-    
-  # end
+  def dead_or_alive
+    if self.state == "live"
+      self.state = "die" if self.neighbors.count < 2
+      self.state = "die" if self.neighbors.count > 3
+      # self.state="live" if self.neighbors.count == 2
+      # self.state="live" if self.neighbors.count == 3
+    else
+      self.state = "live" if self.neighbors.count == 3
+    end
+    self
+  end
 
 end
 
-cell1 = Cell.new(0,0)
-cell2 = Cell.new(0,1)
-cell3 = Cell.new(1,1)
-cell3.neighbor_check
-p cell3.neighbors.count
+# cell1 = Cell.new(0,0)
+# # cell2 = Cell.new(0,1)
+# cell3 = Cell.new(1,1)
+# cell3.neighbor_check
+# p cell3.state
