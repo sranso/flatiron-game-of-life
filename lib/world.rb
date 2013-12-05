@@ -34,7 +34,7 @@ class World
       end
     end
     # set new world
-    sleep(0.2)
+    sleep(0.18)
     shows_world
   end
 

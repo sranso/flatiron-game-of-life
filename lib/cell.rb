@@ -7,19 +7,9 @@ class Cell
     # CELLS SHOULD KNOW WHICH WORLD THEY'RE A PART OF..?
     @y = y
     @x = x
-    @state = "." #make_state
+    @state = "."
     @destiny
   end
-
-  # def make_state
-  #   if rand(0..1) == 0
-  #     init_state = "o"
-  #   else
-  #     init_state = "."
-  #   end
-  #   init_state
-  # end
-
 
   def neighbor_check(world)
     neighbors = []

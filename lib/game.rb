@@ -3,7 +3,6 @@ require "./world"
 require "debugger"
 
 class Game
-
   attr_reader :world
 
   def initialize
@@ -50,16 +49,30 @@ class Game
     world.shows_world
   end
 
+  def lightweight_spaceship
+    world.board[14][12].state = "o"
+    world.board[14][13].state = "o"
+    world.board[15][10].state = "o"
+    world.board[15][11].state = "o"
+    world.board[15][13].state = "o"
+    world.board[15][14].state = "o"
+    world.board[16][10].state = "o"
+    world.board[16][11].state = "o"
+    world.board[16][12].state = "o"
+    world.board[16][13].state = "o"
+    world.board[17][11].state = "o"
+    world.board[17][12].state = "o"
+    world.shows_world
+  end
+
+
   def random
-    world = World.new
-    # if rand(0..1) == 0
-    #   init_state = "o"
-    # else
-    #   init_state = "."
-    # end
-    # init_state
+    glider if rand(0..2) == 0
+    blinker if rand(0..2) == 0
+    toad if rand(0..2) == 0
+    lightweight_spaceship if rand(0..2) == 0
   end
 
 end
 
-Game.new.glider
+Game.new.random
