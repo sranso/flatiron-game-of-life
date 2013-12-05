@@ -2,37 +2,55 @@ require "./cell"
 require "debugger"
 
 class World
-  attr_reader :world_array_y, :world_array_x
+  attr_reader :world_array
 
   def initialize
     create_world
   end
 
   def create_world
-    @world_array_y = []
-    50.times do |i|
-      @world_array_x = []
-      30.times do |ii|
-        @world_array_x << Cell.new(i, ii)
+    @world_array = []
+    30.times do |y|
+      world_array_x = []
+      30.times do |x|
+        world_array_x << Cell.new(y, x)
       end
-      @world_array_y << @world_array_x
+      @world_array << world_array_x
     end
+    shows_world
   end
 
-  def new_world_array
-    @new_world_array_y = []
-    @world_array_y.each do |y|
-      @new_world_array_x = []
-      @world_array_x.each do |x|
-        @new_world_array_x << x.tick
+  def turn_world
+    # assign destiny
+    @world_array.each do |y| # 30 times
+      y.each do |x| # 30 times
+        x.create_destiny(self)
       end
-      @new_world_array_y << @new_world_array_x
     end
+    # tick
+    @world_array.each do |y| # 30 times
+      y.each do |x| # 30 times
+        x.tick
+        # debugger
+      end
+    end
+    # set new world
+    sleep(0.5)
+    shows_world
+  end
+
+  def shows_world
+    @world_array.each do |y|
+      y.each do |x|
+        print "#{x.state}  "
+      end
+      puts
+    end
+    turn_world
   end
 
 end
 
 # test = World.new
-# test.new_world_array
-# p test.world_array_y[3][3].neighbor_check.state
-# p test.world_array_y[0][0].state
+# test.shows_world
+# test.turn_world
