@@ -1,52 +1,69 @@
 require "debugger"
 
 class Cell
-  attr_reader :neighbors
   attr_accessor :x, :y, :state
+  attr_reader :neighbors, :new_world
 
   ALL_CELLS = []
 
   def initialize(y, x)
+    # REWRITE SO YOU DON'T HAVE TO INITIALIZE WITH PARAMETERS
+    # CELLS SHOULD KNOW WHICH WORLD THEY'RE A PART OF..?
     @y = y
     @x = x
-    @neighbors = []
     @state = "live"
+    # @@new_world = []
     ALL_CELLS << self
   end
 
   def neighbor_check
+    # CHECK FOR EDGE CASES (LITERALLY).. do i need to though? they wont be live..
+    neighbors = []
     ALL_CELLS.each do |cell|
       # is there a neighbor to the top left
-      neighbors << cell if (self.y - 1 == cell.y) && (self.x - 1 == cell.x)
+      if (self.y - 1 == cell.y) && (self.x - 1 == cell.x)
+        neighbors << cell if cell.state == "live"
+      end
       # is there a neighbor directly above
-      neighbors << cell if (self.y - 1 == cell.y) && (self.x == cell.x)
+      if (self.y - 1 == cell.y) && (self.x == cell.x)
+        neighbors << cell if cell.state == "live"
+      end
       # is there a neighbor to the top right
-      neighbors << cell if (self.y - 1 == cell.y) && (self.x + 1 == cell.x)
+      if (self.y - 1 == cell.y) && (self.x + 1 == cell.x)
+        neighbors << cell if cell.state == "live"
+      end
       # is there a neighbor to the right
-      neighbors << cell if (self.y == cell.y) && (self.x + 1 == cell.x)
+      if (self.y == cell.y) && (self.x + 1 == cell.x)
+        neighbors << cell if cell.state == "live"
+      end
       # is there a neighbor to the bottom right
-      neighbors << cell if (self.y + 1 == cell.y) && (self.x + 1 == cell.x)
+      if (self.y + 1 == cell.y) && (self.x + 1 == cell.x)
+        neighbors << cell if cell.state == "live"
+      end
       # is there a neighbor directly below
-      neighbors << cell if (self.y + 1 == cell.y) && (self.x == cell.x)
+      if (self.y + 1 == cell.y) && (self.x == cell.x)
+        neighbors << cell if cell.state == "live"
+      end
       # is there a neighbor to the bottom left
-      neighbors << cell if (self.y + 1 == cell.y) && (self.x - 1 == cell.x)
+      if (self.y + 1 == cell.y) && (self.x - 1 == cell.x)
+        neighbors << cell if cell.state == "live"
+      end
       # is there a neighbor to the left
-      neighbors << cell if (self.y == cell.y) && (self.x - 1 == cell.x)
+      if (self.y == cell.y) && (self.x - 1 == cell.x)
+        neighbors << cell if cell.state == "live"
+      end
     end
     neighbors
-    dead_or_alive
   end
 
-  def dead_or_alive
+  def tick
     if self.state == "live"
-      self.state = "die" if self.neighbors.count < 2
-      self.state = "die" if self.neighbors.count > 3
-      # self.state="live" if self.neighbors.count == 2
-      # self.state="live" if self.neighbors.count == 3
+      self.state = "die" if self.neighbor_check.count < 2
+      self.state = "die" if self.neighbor_check.count > 3
     else
-      self.state = "live" if self.neighbors.count == 3
+      self.state = "live" if self.neighbor_check.count == 3
     end
-    self
+      self
   end
 
 end
@@ -55,4 +72,4 @@ end
 # # cell2 = Cell.new(0,1)
 # cell3 = Cell.new(1,1)
 # cell3.neighbor_check
-# p cell3.state
+# cell3.tick

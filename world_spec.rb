@@ -8,6 +8,12 @@ describe World do
     expect(test_world.world_array_y.size).to eq(50)
   end
 
+  describe "#tick" do
+    it 'should be able to tick through another state of the world' do
+      
+    end
+  end
+
   it 'should be able to tell cells to die' do
     #
   end
