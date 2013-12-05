@@ -1,30 +1,29 @@
 require "debugger"
 
 class Cell
-  attr_accessor :x, :y, :state, :destiny
+  attr_accessor :y, :x, :state, :destiny
 
   def initialize(y, x)
-    # REWRITE SO YOU DON'T HAVE TO INITIALIZE WITH PARAMETERS
     # CELLS SHOULD KNOW WHICH WORLD THEY'RE A PART OF..?
     @y = y
     @x = x
-    @state = make_state
+    @state = "." #make_state
     @destiny
   end
 
-  def make_state
-    if rand(0..1) == 0
-      init_state = "o"
-    else
-      init_state = "."
-    end
-    init_state
-  end
+  # def make_state
+  #   if rand(0..1) == 0
+  #     init_state = "o"
+  #   else
+  #     init_state = "."
+  #   end
+  #   init_state
+  # end
 
 
   def neighbor_check(world)
     neighbors = []
-    world.world_array.each do |array|
+    world.board.each do |array|
       array.each do |cell|
         # only add live cells to the neighbor count
         # is there a neighbor to the top left
@@ -66,22 +65,18 @@ class Cell
 
   def create_destiny(world) # o live, . die
     neighbors = neighbor_check(world)
-    # debugger
     if state == "o"
       @destiny = "." if neighbors.count < 2
-      # debugger
       @destiny = "." if neighbors.count > 3
       @destiny = "o" if neighbors.count == 3
       @destiny = "o" if neighbors.count == 2
     else
       @destiny = "o" if neighbors.count == 3
       @destiny = "." if neighbors.count != 3
-      # debugger
     end
   end
 
-  def tick
-    # make state of each cell its destiny
+  def tick! # make state of each cell its destiny
     @state = @destiny
   end
 

@@ -1,4 +1,4 @@
-require './world'
+require '../lib/world'
 require "rspec"
 
 describe World do
@@ -28,8 +28,8 @@ describe World do
   #   end
   # end
 
-  it 'should know where cells exist in the world' do # does it need to know this?
-    #
-  end
+  # it 'should know where cells exist in the world' do # does it need to know this?
+  #   #
+  # end
 
 end

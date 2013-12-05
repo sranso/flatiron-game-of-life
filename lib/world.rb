@@ -1,46 +1,45 @@
-require "./cell"
+# require "./cell"
 require "debugger"
 
 class World
-  attr_reader :world_array
+  attr_reader :board
 
   def initialize
     create_world
   end
 
   def create_world
-    @world_array = []
+    @board = []
     30.times do |y|
-      world_array_x = []
+      rows = []
       30.times do |x|
-        world_array_x << Cell.new(y, x)
+        rows << Cell.new(y, x)
       end
-      @world_array << world_array_x
+      @board << rows
     end
-    shows_world
   end
 
   def turn_world
     # assign destiny
-    @world_array.each do |y| # 30 times
+    @board.each do |y| # 30 times
       y.each do |x| # 30 times
         x.create_destiny(self)
       end
     end
-    # tick
-    @world_array.each do |y| # 30 times
+    # tick!
+    @board.each do |y| # 30 times
       y.each do |x| # 30 times
-        x.tick
+        x.tick!
         # debugger
       end
     end
     # set new world
-    sleep(0.5)
+    sleep(0.2)
     shows_world
   end
 
   def shows_world
-    @world_array.each do |y|
+    @board.each do |y|
       y.each do |x|
         print "#{x.state}  "
       end

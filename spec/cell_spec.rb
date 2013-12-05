@@ -1,12 +1,11 @@
-require "./cell"
-require "./world"
+require "../lib/cell"
+require "../lib/world"
 require "rspec"
 require "debugger"
 
 describe 'game of life' do
   test = World.new
   test.turn_world
-  
 
   # can't figure out syntax for '.' OR 'live' on expect line
   # it 'should be either dead or alive' do
