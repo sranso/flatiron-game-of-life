@@ -1,0 +1,8 @@
+<h1>Game Of Life</h1>
+<%= @local_game.blinker %>
+<% @local_game.world.board.each do |array| %>
+  <% n = 0 %>
+  <% array.each do |cell| %>
+    <%= cell.state %>
+  <% end %>
+<% end %>

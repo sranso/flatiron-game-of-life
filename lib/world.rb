@@ -1,5 +1,4 @@
 # require "./cell"
-require "debugger"
 
 class World
   attr_reader :board
@@ -30,22 +29,21 @@ class World
     @board.each do |y| # 30 times
       y.each do |x| # 30 times
         x.tick!
-        # debugger
       end
     end
     # set new world
-    sleep(0.18)
+    sleep(0.1)
     shows_world
   end
 
   def shows_world
-    @board.each do |y|
-      y.each do |x|
-        print "#{x.state}  "
-      end
-      puts
-    end
-    turn_world
+    # @board.each do |y|
+    #   y.each do |x|
+    #     print "#{x.state}  "
+    #   end
+    #   puts
+    # end
+    # turn_world
   end
 
 end

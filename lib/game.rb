@@ -1,7 +1,3 @@
-require "./cell"
-require "./world"
-require "debugger"
-
 class Game
   attr_reader :world
 
@@ -75,4 +71,4 @@ class Game
 
 end
 
-Game.new.random
+# Game.new.lightweight_spaceship

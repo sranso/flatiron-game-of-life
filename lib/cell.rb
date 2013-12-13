@@ -1,5 +1,3 @@
-require "debugger"
-
 class Cell
   attr_accessor :y, :x, :state, :destiny
 
