@@ -50,7 +50,6 @@ class Cell
     end
     neighbors
   end
-
   def create_destiny(world) # o live, . die
     neighbors = neighbor_check(world)
     if state == "o"

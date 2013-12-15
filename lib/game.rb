@@ -9,12 +9,12 @@ class Game
     world.board[0][1].state = "o"
     world.board[1][1].state = "o"
     world.board[2][1].state = "o"
-    world.board[3][14].state = "o"
-    world.board[4][14].state = "o"
-    world.board[5][14].state = "o"
-    world.board[13][24].state = "o"
-    world.board[14][24].state = "o"
-    world.board[15][24].state = "o"
+    # world.board[3][14].state = "o"
+    # world.board[4][14].state = "o"
+    # world.board[5][14].state = "o"
+    # world.board[13][24].state = "o"
+    # world.board[14][24].state = "o"
+    # world.board[15][24].state = "o"
     world.shows_world
   end
 
@@ -70,5 +70,3 @@ class Game
   end
 
 end
-
-# Game.new.lightweight_spaceship

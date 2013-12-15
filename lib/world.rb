@@ -1,5 +1,3 @@
-# require "./cell"
-
 class World
   attr_reader :board
 
@@ -31,9 +29,6 @@ class World
         x.tick!
       end
     end
-    # set new world
-    sleep(0.1)
-    shows_world
   end
 
   def shows_world
@@ -43,11 +38,6 @@ class World
     #   end
     #   puts
     # end
-    # turn_world
   end
 
 end
-
-# test = World.new
-# test.shows_world
-# test.turn_world
