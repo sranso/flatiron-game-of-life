@@ -8,6 +8,7 @@ end
 module Name
   class App < Sinatra::Application
     @@game = Game.new
+    @@game.glider
 
     get '/' do
       @@game.world.turn_world

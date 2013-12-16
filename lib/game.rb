@@ -15,7 +15,6 @@ class Game
     # world.board[13][24].state = "o"
     # world.board[14][24].state = "o"
     # world.board[15][24].state = "o"
-    world.shows_world
   end
 
   def toad
@@ -28,7 +27,6 @@ class Game
     world.board[13][24].state = "o"
     world.board[14][24].state = "o"
     world.board[15][24].state = "o"
-    world.shows_world
   end
 
   def glider
@@ -42,7 +40,6 @@ class Game
     world.board[21][22].state = "o"
     world.board[22][21].state = "o"
     world.board[22][23].state = "o"
-    world.shows_world
   end
 
   def lightweight_spaceship
@@ -58,7 +55,6 @@ class Game
     world.board[16][13].state = "o"
     world.board[17][11].state = "o"
     world.board[17][12].state = "o"
-    world.shows_world
   end
 
 

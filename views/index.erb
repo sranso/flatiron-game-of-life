@@ -1,6 +1,5 @@
 <h1>Game Of Life</h1>
 <div id="board">
-  <%= @local_game.blinker %>
   <% @local_game.world.board.each do |array| %>
     <% array.each do |cell| %>
       <div class="cell" style="<%=cell.state == "." ? @black : @blue %>">
