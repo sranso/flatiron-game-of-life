@@ -1,13 +1,19 @@
 .cell {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
   float: left;
 }
 #board {
-  width: 1200px;
-  height: 1200px;
+  margin: 0 auto;
+  width: 900px;
+  height: 900px;
 }
-p {
-  color: white;
-  font-size: 12px;
+h1 {
+  font-family: 'Oswald', Helvetica, Arial, sans-serif;
+  font-weight: 900;
+  font-size: 50px;
+  text-align: center;
+  color: gold;
+  margin: 5px auto;
 }

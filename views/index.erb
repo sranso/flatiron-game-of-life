@@ -2,8 +2,7 @@
 <div id="board">
   <% @local_game.world.board.each do |array| %>
     <% array.each do |cell| %>
-      <div class="cell" style="<%=cell.state == "." ? @black : @blue %>">
-        <p><%= cell.state%> <%= cell.destiny%></p>
+      <div class="cell" style="<%=cell.state == "." ? @white : @crimson %>">
       </div>
     <% end %>
   <% end %>
