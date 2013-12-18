@@ -8,12 +8,21 @@ end
 module Name
   class App < Sinatra::Application
     @@game = Game.new
-    @@game.glider
 
     get '/' do
+      erb :choosegame
+    end
+
+    post '/' do
+      @@game.send(params["game"])
+      @local_game = @@game
+      erb :chosengame
+    end
+
+    get '/gameoflife' do
       @@game.world.turn_world
       @local_game = @@game
-      erb :index
+      erb :gameoflife
     end
 
   end

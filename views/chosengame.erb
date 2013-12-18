@@ -1,4 +1,5 @@
-<h1>Game Of Life</h1>
+<h1>Welcome to the Game Of Life</h1>
+
 <div id="board">
   <% @local_game.world.board.each do |array| %>
     <% array.each do |cell| %>
@@ -6,4 +7,7 @@
       </div>
     <% end %>
   <% end %>
+</div>
+<div id="playbutton">
+  <a href="/gameoflife">PLAY</a>
 </div>

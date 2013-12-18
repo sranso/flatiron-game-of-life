@@ -17,3 +17,22 @@ h1 {
   color: gold;
   margin: 5px auto;
 }
+#playbutton {
+  margin: 0 auto;
+}
+body, select, label, button {
+  font-family: 'Oswald', Helvetica, Arial, sans-serif;
+  font-size: 24px;
+  color: dimgrey;
+}
+button, a {
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  background-color: darkred;
+  text-decoration: none;
+}
+button:hover, a:hover {
+  background-color: crimson;
+  cursor: pointer;
+}
