@@ -31,13 +31,4 @@ class World
     end
   end
 
-  def shows_world
-    # @board.each do |y|
-    #   y.each do |x|
-    #     print "#{x.state}  "
-    #   end
-    #   puts
-    # end
-  end
-
 end

@@ -13,8 +13,6 @@ module Name
     get '/' do
       @@game.world.turn_world
       @local_game = @@game
-      @white = 'background-color: white;'
-      @crimson = 'background-color: crimson;'
       erb :index
     end
 
