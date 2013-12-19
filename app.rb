@@ -7,9 +7,9 @@ end
 
 module Name
   class App < Sinatra::Application
-    @@game = Game.new
 
     get '/' do
+      @@game = Game.new
       erb :choosegame
     end
 
