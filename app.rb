@@ -8,10 +8,8 @@ end
 module Name
   class App < Sinatra::Application
 
-    @@game = Game.new
-
     get '/' do
-      # @@game = Game.new
+      @@game = Game.new
       erb :choosegame
     end
 
@@ -26,10 +24,6 @@ module Name
       @local_game = @@game
       erb :gameoflife
     end
-
-    # helpers do
-    #   @@game ||= Game.new
-    # end
 
   end
 end
