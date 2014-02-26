@@ -1,9 +1,11 @@
 <head>
-  <meta http-equiv="refresh" content="0.1">
+  <!-- <meta http-equiv="refresh" content="0.1"> -->
 </head>
-<h1>Game Of Life</h1>
-<div class="button">
-  <a href="/">Stop</a>
+<h1>the game of life</h1>
+<div class="left">
+  <div class="button" id="stop">
+    <a href="/">stop</a>
+  </div>
 </div>
 <div id="board">
   <% @local_game.world.board.each do |array| %>

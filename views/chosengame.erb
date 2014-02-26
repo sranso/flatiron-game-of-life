@@ -1,18 +1,20 @@
-<h1>Welcome to the Game Of Life</h1>
+<h1>the game of life</h1>
 
-<div id="board">
-  <% @local_game.world.board.each do |array| %>
-    <% array.each do |cell| %>
-      <div class="cell" style="background-color: <%= cell.state %>">
-      </div>
-    <% end %>
-  <% end %>
-</div>
 <div class="center_container">
-  <div class="button">
-    <a href="/gameoflife">PLAY</a>
+  <div class="left">
+    <div class="button">
+      <a href="/gameoflife">play</a>
+    </div>
+    <div class="button">
+      <a href="/">redo</a>
+    </div>
   </div>
-  <div class="button">
-    <a href="/">Redo</a>
+  <div id="board">
+    <% @local_game.world.board.each do |array| %>
+      <% array.each do |cell| %>
+        <div class="cell" style="background-color: <%= cell.state %>">
+        </div>
+      <% end %>
+    <% end %>
   </div>
 </div>

@@ -16,35 +16,35 @@ class Cell
         # only add live cells to the neighbor count
         # is there a neighbor to the top left
         if (@y - 1 == cell.y) && (@x - 1 == cell.x)
-          neighbors << cell if cell.state == "crimson"
+          neighbors << cell if cell.state == "blue"
         end
         # is there a neighbor directly above
         if (@y - 1 == cell.y) && (@x == cell.x)
-          neighbors << cell if cell.state == "crimson"
+          neighbors << cell if cell.state == "blue"
         end
         # is there a neighbor to the top right
         if (@y - 1 == cell.y) && (@x + 1 == cell.x)
-          neighbors << cell if cell.state == "crimson"
+          neighbors << cell if cell.state == "blue"
         end
         # is there a neighbor to the right
         if (@y == cell.y) && (@x + 1 == cell.x)
-          neighbors << cell if cell.state == "crimson"
+          neighbors << cell if cell.state == "blue"
         end
         # is there a neighbor to the bottom right
         if (@y + 1 == cell.y) && (@x + 1 == cell.x)
-          neighbors << cell if cell.state == "crimson"
+          neighbors << cell if cell.state == "blue"
         end
         # is there a neighbor directly below
         if (@y + 1 == cell.y) && (@x == cell.x)
-          neighbors << cell if cell.state == "crimson"
+          neighbors << cell if cell.state == "blue"
         end
         # is there a neighbor to the bottom left
         if (@y + 1 == cell.y) && (@x - 1 == cell.x)
-          neighbors << cell if cell.state == "crimson"
+          neighbors << cell if cell.state == "blue"
         end
         # is there a neighbor to the left
         if (@y == cell.y) && (@x - 1 == cell.x)
-          neighbors << cell if cell.state == "crimson"
+          neighbors << cell if cell.state == "blue"
         end
       end
     end
@@ -52,13 +52,13 @@ class Cell
   end
   def create_destiny(world) # o live, . die
     neighbors = neighbor_check(world)
-    if state == "crimson"
+    if state == "blue"
       @destiny = "white" if neighbors.count < 2
       @destiny = "white" if neighbors.count > 3
-      @destiny = "crimson" if neighbors.count == 3
-      @destiny = "crimson" if neighbors.count == 2
+      @destiny = "blue" if neighbors.count == 3
+      @destiny = "blue" if neighbors.count == 2
     else
-      @destiny = "crimson" if neighbors.count == 3
+      @destiny = "blue" if neighbors.count == 3
       @destiny = "white" if neighbors.count != 3
     end
   end

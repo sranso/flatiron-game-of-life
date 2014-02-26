@@ -7,9 +7,9 @@ class World
 
   def create_world
     @board = []
-    30.times do |y|
+    20.times do |y|
       rows = []
-      30.times do |x|
+      20.times do |x|
         rows << Cell.new(y, x)
       end
       @board << rows

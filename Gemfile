@@ -7,6 +7,7 @@ gem "sinatra-activerecord"
 gem "rake"
 
 group :development do
+  gem "debugger"
   gem "shotgun"
   gem "tux"
 end

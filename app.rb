@@ -25,5 +25,9 @@ module Name
       erb :gameoflife
     end
 
+    helpers do
+      @@game ||= Game.new
+    end
+
   end
 end
